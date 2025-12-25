@@ -1,5 +1,3 @@
-Rules I can infer from the 4 “99% your style” modules you uploaded (treated as formatting rules, not coding/architecture rules):
-
 ## A) File layout and sectioning
 
 1. **File starts with a standalone `#` line.**
@@ -8,7 +6,7 @@ Rules I can infer from the 4 “99% your style” modules you uploaded (treated 
    * 3 lines of a long `########...` separator
    * then 1 titled separator line: `########... <TITLE>`
    * then a standalone `#`
-3. **You use at least two separator lengths** (a “long” one ~99 chars and a “mid” one ~65 chars) for major vs minor sections.
+3. **Use at least two separator lengths** (a “long” one ~99 chars and a “mid” one ~65 chars) for major vs minor sections.
 4. **Imports are grouped into labeled sections** like `Standard Modules`, `My Modules`, etc., each using the banner pattern.
 5. **Separating logical parts with long `#` banners is the user’s responsibility** (manual structure; formatter should not invent new sections).
 
@@ -23,7 +21,7 @@ Rules I can infer from the 4 “99% your style” modules you uploaded (treated 
 9. **Always a blank line after `class X:`** before the first content.
 10. **Usually a blank line after `def foo(...):`** before the first statement.
 
-    * Exception: when a docstring starts immediately, you may place the docstring right away.
+    * Exception: when a docstring starts immediately, may place the docstring right away.
 
 ## D) Type-hint spacing rules
 
@@ -38,7 +36,7 @@ Rules I can infer from the 4 “99% your style” modules you uploaded (treated 
 
     * `ser_open      : pd.Series`
 
-## E) Alignment rules (your “columns” style)
+## E) Alignment rules (“columns” style)
 
 15. **Assignments are column-aligned** using multiple spaces before `=`:
 
@@ -46,7 +44,7 @@ Rules I can infer from the 4 “99% your style” modules you uploaded (treated 
 16. **Object attribute assignments confirm the same alignment**:
 
     * `self.param_ruler                 = ...`
-17. **Keyword arguments in function calls are aligned and spaced around `=`** (PEP8-opposed but consistent in your style):
+17. **Keyword arguments in function calls are aligned and spaced around `=`** (PEP8-opposed but consistent in style):
 
     * `labels       = ...`
 18. **Dict entries often align keys/colons/values** using extra spaces:
@@ -65,7 +63,7 @@ Rules I can infer from the 4 “99% your style” modules you uploaded (treated 
 
     * `while ( ... ):`
 22. **No parentheses around `for` headers** (standard `for x in y:`).
-23. **Inside boolean-heavy conditions, you often use double-spacing around boolean operators**:
+23. **Inside boolean-heavy conditions, often use double-spacing around boolean operators**:
 
     * `  and  `, `  or  ` (especially in long expressions)
 
@@ -74,7 +72,7 @@ Rules I can infer from the 4 “99% your style” modules you uploaded (treated 
 24. **Return values are wrapped in parentheses**:
 
     * `return (value)`
-25. **You frequently wrap right-hand-side expressions in parentheses** even when not required:
+25. **Frequently wrap right-hand-side expressions in parentheses** even when not required:
 
     * `ser_timestamp = (df['timestamp'])`
 
@@ -95,10 +93,4 @@ Rules I can infer from the 4 “99% your style” modules you uploaded (treated 
 
 ## J) Line length
 
-30. **No strict PEP8 line-length discipline** (you allow very long lines when you choose, especially in lambdas/conditions).
-
-If you want, I can convert this into a “machine-readable” style spec (a checklist + regex-able rules), and also classify each rule as:
-
-* “autopep8 impossible”
-* “autopep8 maybe via ignores/args”
-* “needs custom formatter / AST-based rewriter”
+30. **No strict PEP8 line-length discipline** (Very long lines are allowed when choosed, especially in lambdas/conditions).
