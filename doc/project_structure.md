@@ -1,12 +1,12 @@
 ## Repository layout
 
-Project_CPyPy/
+Project_CPy/
 
 ```
 pyproject.toml
 README.md
 
-cpypy/
+CPy/
 
     __init__.py
     __main__.py
@@ -45,7 +45,7 @@ cpypy/
         text.py
 
 doc/
-    cpypy_rules.md
+    CPy_rules.md
     vscode_integration.md
     project_structure.md
 
@@ -70,35 +70,35 @@ test/
 ## Top-level files
 
 ### `pyproject.toml`
-Project metadata and packaging configuration. Also hosts formatter configuration under a `[tool.cpypy]` section (later).
+Project metadata and packaging configuration. Also hosts formatter configuration under a `[tool.CPy]` section (later).
 
 ### `README.md`
 Quickstart, installation, CLI usage, and basic examples.
 
 ---
 
-## `cpypy/` package
+## `CPy/` package
 
 This is the formatter implementation.
 
-### `cpypy/__init__.py`
+### `CPy/__init__.py`
 Package metadata and public exports.
 
-### `cpypy/__main__.py`
+### `CPy/__main__.py`
 Enables:
 ```bash
-python -m cpypy ...
+python -m CPy ...
 ```
 
 Usually calls the CLI entrypoint.
 
-### `cpypy/cli.py`
+### `CPy/cli.py`
 
 Command-line interface:
 
-* `cpypy format <path>`
-* `cpypy check <path>`
-* `cpypy diff <path>`
+* `CPy format <path>`
+* `CPy check <path>`
+* `CPy diff <path>`
 
 Responsibilities:
 
@@ -107,7 +107,7 @@ Responsibilities:
 * decide exit codes (important for CI)
 * delegate actual formatting to `engine/formatter.py`
 
-### `cpypy/config.py`
+### `CPy/config.py`
 
 Loads formatter configuration (initially from defaults; later from `pyproject.toml`).
 Defines:
@@ -117,7 +117,7 @@ Defines:
 
 ---
 
-## `cpypy/engine/`
+## `CPy/engine/`
 
 Execution orchestration: format/check/diff workflows, not rule logic.
 
@@ -143,12 +143,12 @@ Pipeline ordering is critical, because some rules depend on earlier normalizatio
 
 ### `engine/diff.py`
 
-Produces diffs for `cpypy diff` (unified diff output).
+Produces diffs for `CPy diff` (unified diff output).
 Used in CI-friendly workflows.
 
 ---
 
-## `cpypy/model/`
+## `CPy/model/`
 
 Internal representation used by rules. Keep this small and stable.
 
@@ -173,7 +173,7 @@ Used for indentation-aware rules like:
 
 ---
 
-## `cpypy/render/`
+## `CPy/render/`
 
 Converts the internal model back into final text.
 
@@ -188,7 +188,7 @@ Goals:
 
 ---
 
-## `cpypy/rule/`
+## `CPy/rule/`
 
 Rule implementations (one module per rule). Each rule should:
 
@@ -232,7 +232,7 @@ Defines:
 
 ---
 
-## `cpypy/util/`
+## `CPy/util/`
 
 Small utilities that are not rules and not pipeline logic.
 
@@ -250,11 +250,11 @@ Text helpers:
 
 Project documentation.
 
-* `cpypy_rules.md`
+* `CPy_rules.md`
   Human description of each rule, examples, and known limitations.
 
 * `vscode_integration.md`
-  How to run CPyPy from VS Code (tasks, format-on-save, extension ideas).
+  How to run CPy from VS Code (tasks, format-on-save, extension ideas).
 
 * `project_structure.md`
   This file.
